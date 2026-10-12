@@ -1,0 +1,7 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "upwork-hiring-panel-skill",
+  "description": "The Upwork hiring panel skill for Claude Code",
+  "owner": {"name": "Aaksanurirwan"},
+  "plugins": [{"name": "upwork-hiring-panel-skill", "description": "Seven Claudes judge your Upwork proposal, then rewrite it to win the interview.", "source": "./", "category": "productivity", "author": {"name": "Aaksanurirwan", "url": "https://github.com/aaksa"}}]
+}

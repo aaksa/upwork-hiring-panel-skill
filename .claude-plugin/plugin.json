@@ -1,0 +1,20 @@
+{
+  "name": "upwork-hiring-panel-skill",
+  "description": "Seven Claudes judge your Upwork proposal as different readers (busy client, hiring client, budget client, rival freelancer, skeptic, technical lead, Upwork veteran), explain why it gets rejected, then rewrite it to win the interview.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aaksanurirwan",
+    "url": "https://github.com/aaksa"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-skills",
+    "upwork",
+    "freelance",
+    "proposal",
+    "cover-letter"
+  ],
+  "repository": "https://github.com/aaksa/upwork-hiring-panel-skill",
+  "homepage": "https://github.com/aaksa/upwork-hiring-panel-skill"
+}
