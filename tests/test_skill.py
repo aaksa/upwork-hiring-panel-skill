@@ -59,6 +59,13 @@ class SkillTest(unittest.TestCase):
         self.assertIn("Never invent clients, results, numbers", self.skill)
         self.assertIn("[ADD: ...]", self.skill)
 
+    def test_screening_answers_each_get_a_box(self):
+        self.assertIn("own input box", self.skill)
+        self.assertIn("one answer for EVERY question", self.skill)
+        self.assertIn("each in its own code block", self.skill)
+        self.assertIn("## Screening answer rules", self.rubric)
+        self.assertIn("Never \"see cover letter\"", self.rubric)
+
     def test_stays_on_upwork(self):
         self.assertIn("off Upwork", self.skill)
         self.assertIn("Stay on Upwork", self.rubric)

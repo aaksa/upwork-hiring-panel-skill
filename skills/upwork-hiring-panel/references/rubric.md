@@ -79,3 +79,17 @@ The rewrite is for the client, not about the freelancer.
 10. **Personal.** Use the client's name or company only if it appears in the job post; otherwise no "Dear Sir/Madam", just start.
 11. **Stay on Upwork.** No contact details, no outside links that need a login, no off-platform payment.
 12. **Never invent.** No new clients, numbers, years, tools, reviews or results. Keep every true fact that helps; cut the ones that do not. Where a fix needs a fact you do not have, write `[ADD: what is needed]`.
+
+## Screening answer rules
+
+Every screening question has its own input box, and clients often read the answers before the cover letter. Each answer must stand on its own. Write them in the order the questions came, one per question, as plain text (no markdown headings or bold; a plain `-` list only when the question asks for a list).
+
+1. **Answer the question in the first sentence**: the pick, the link, or "Yes". No warm-up, no restating the question.
+2. **Never "see cover letter" or "see above"**, and never repeat sentences from the cover letter or another answer.
+3. **Use the job's own terms**: its milestones, tools, deliverables and numbers, so the answer could not be pasted into another job.
+4. **Short**: 2 to 5 sentences, usually under 100 words, unless the question asks for more.
+5. **Links**: when the question asks for links, give only links the user supplied, as full URLs after a short label.
+6. **Honesty over polish**: if the question asks for proof the user does not have (for example a live app with a specific feature), never invent it or imply it. Say plainly what they did ship, then name one concrete step that covers the gap. Add `[ADD: ...]` where a true detail the user can supply would make the answer stronger.
+7. **Confirmation questions** ("confirm you have reviewed…", "agree to…"): start with "Yes", show it was read by naming one or two specifics from the document, then state the commitment. If the document was provided, never hedge with "once I have reviewed". If the user has not read it, tell them to read it first instead of writing a false "Yes".
+8. **Recommendation questions** ("which tool or framework and why"): name the pick in the first sentence, give two or three reasons tied to this job's requirements, then the one real trade-off and how it would be handled.
+9. **Same language as the question.**

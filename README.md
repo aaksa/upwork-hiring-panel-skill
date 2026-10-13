@@ -21,8 +21,9 @@ Nobody sees anybody else's notes. Then the skill:
 1. Scores **Hook, Clarity, Relevance, Credibility, Value Proposition and Interview Potential** (1–10) and gives an
    interview chance: LOW, MEDIUM or HIGH.
 2. Merges everything into one list of problems, worst first, and writes **the rejection story** in the client's voice.
-3. **Rewrites the proposal** (same facts, nothing invented), plus three alternative opening lines and rewritten
-   screening answers.
+3. **Rewrites the proposal** (same facts, nothing invented), plus three alternative opening lines.
+   If the job has screening questions, it also writes a **fixed answer for every question**, each in its own code
+   block, ready to paste into that question's own input box on Upwork (even when you had no answer yet).
 4. Runs The Scroller and The Hiring Client again on the rewrite and shows the before and after verdict.
 
 Everything goes in `.upwork-hiring-panel/` where you run it: `PANEL.md` and `PROPOSAL-IMPROVED.md`.

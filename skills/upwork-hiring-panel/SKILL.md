@@ -21,7 +21,7 @@ Everything after `/upwork-hiring-panel` is input: a file path (read it; PDF, .md
 - **Proposal**: the cover letter the client will read. Required.
 - **Job post**: title and description of the job. Strongly needed. If it is missing, ask ONE question: "Paste the job post (title and description) you are bidding on." Then continue. If the user says they do not have it, continue with "job post: not given" and tell every reviewer.
 - **Bid**: fixed price or hourly rate, and timeline, if given. Otherwise write "bid: not given".
-- **Screening questions and answers**, if the job had them.
+- **Screening questions**, each with the user's answer if there is one. Upwork gives every screening question its own input box, so keep each question and each answer separate, in the order given. Questions with no answer yet are fine: reviewers see "answer: not given", and step 5 writes the answer.
 - **Freelancer profile**: title, rate, Job Success Score, relevant portfolio items, if given.
 
 Use only what the user gave you. Never invent clients, results, numbers, years of experience, tools, reviews or portfolio items. When you assume something, label it "assumed".
@@ -54,22 +54,23 @@ Write the improved proposal following the rewrite rules in `references/rubric.md
 
 Also give:
 - **Three alternative opening lines** (each under 200 characters) the user can swap in.
-- **Screening answers rewritten**, if any were given.
+- **Screening answers, fixed**: if the job had screening questions, write one answer for EVERY question, whether or not the user wrote one. Each answer sits in its own code block directly under its question (`**Q1: <question>**`), as plain text ready to paste into that question's own input box. Follow the screening answer rules in `references/rubric.md`. Never merge the answers into the cover letter.
 - **What changed and why**: a short list mapping each numbered problem to the fix.
 
-Then start two sub-agents on the new version (same briefs, same inputs, no notes from the first round): **The Scroller** (on the new preview) and **The Hiring Client**. Report the before and after verdict and score for both. If the rewrite still loses, say so and say why.
+Then start two sub-agents on the new version (same briefs, same inputs, no notes from the first round): **The Scroller** (on the new preview) and **The Hiring Client** (who also gets the fixed screening answers in place of the originals). Report the before and after verdict and score for both. If the rewrite still loses, say so and say why.
 
 ## 6. Write the result
 Create `.upwork-hiring-panel/<YYYY-MM-DD>-<job-slug>/` in the current directory with:
 - `PANEL.md`: the inputs used (what was given, what was assumed), the seven verdicts in full, the scorecard, the numbered problems and the rejection story.
-- `PROPOSAL-IMPROVED.md`: the rewritten proposal ready to paste, the three alternative openings, rewritten screening answers, what changed and why, the before and after re-check, and the `[ADD: ...]` questions.
+- `PROPOSAL-IMPROVED.md`: the rewritten proposal ready to paste, the three alternative openings, the fixed screening answers (one code block per question), what changed and why, the before and after re-check, and the `[ADD: ...]` questions.
 
 Touch no other files. Then show the user, in chat:
 1. A table: one row per reviewer with verdict, score and the line that hurt most.
 2. The scorecard and interview chance.
 3. The five worst problems and the rejection story.
 4. The full rewritten proposal in a code block so it can be copied.
-5. The before and after re-check, the `[ADD: ...]` questions, and where the files are.
+5. If there were screening questions: every fixed answer, each in its own code block under its question, labelled so the user can paste each into its own box. This is never left only in the file.
+6. The before and after re-check, the `[ADD: ...]` questions, and where the files are.
 
 ## Rules
 - Be honest. If the proposal is strong, say so, say which reviewer came closest to rejecting it and why it still held, and keep the rewrite to the changes that matter.
