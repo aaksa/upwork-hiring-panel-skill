@@ -24,7 +24,10 @@ Nobody sees anybody else's notes. Then the skill:
 3. **Rewrites the proposal** (same facts, nothing invented), plus three alternative opening lines.
    If the job has screening questions, it also writes a **fixed answer for every question**, each in its own code
    block, ready to paste into that question's own input box on Upwork (even when you had no answer yet).
-4. Runs The Scroller and The Hiring Client again on the rewrite and shows the before and after verdict.
+4. **Tests the hook until it wins**: The Scroller rates 4 or 5 opening lines one by one, and a blind lineup Scroller
+   ranks them against 6 realistic competitor previews. It iterates (up to 3 rounds) until a hook scores 9+ and lands
+   in the top 2, or reports honestly where it plateaus and what proof would break the ceiling.
+5. Runs The Hiring Client again on the full rewrite and shows the before and after verdict.
 
 Everything goes in `.upwork-hiring-panel/` where you run it: `PANEL.md` and `PROPOSAL-IMPROVED.md`.
 
@@ -81,7 +84,7 @@ Or copy `skills/upwork-hiring-panel` into `~/.claude/skills/`. Open a new Claude
 ```
 
 Or paste it: the proposal, then the job post, then your bid and any screening answers. The job post matters most; without
-it the panel can only guess at relevance. One run is nine sub-agent calls (seven reviewers plus two re-checks) and counts
+it the panel can only guess at relevance. One full run is roughly 8 sub-agent calls for the panel plus up to 18 short calls for the hook lab, and it counts
 toward your Claude plan's usage.
 
 ## Layout
@@ -92,6 +95,7 @@ skills/upwork-hiring-panel/
   references/personas.md   the seven reviewer briefs, passed to each sub-agent word for word
   references/rubric.md     scores, interview-chance rule, rejection patterns, rewrite and screening rules
   references/winning-patterns.md  what clients see, market data, the proof-first shape, visibility checklist
+  references/hook-lab.md   the solo + blind-lineup hook test loop, competitor preview types, lessons so far
 examples/sample-proposal.md  a weak proposal and job post to try it on
 tests/test_skill.py
 ```

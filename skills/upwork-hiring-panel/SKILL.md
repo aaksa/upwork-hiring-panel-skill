@@ -1,11 +1,11 @@
 ---
 name: upwork-hiring-panel
 description: >-
-  Run an Upwork proposal past a hiring panel of seven Claudes that each judge it alone as a different reader (a busy client who only sees the profile card and preview, the hiring client, a budget-conscious client, a competing freelancer, a burned-before skeptic, a technical lead and an Upwork veteran), grounded in what Upwork shows clients, market data and the freelancer's own hired proposals. Scores hook, clarity, relevance, credibility, value proposition and interview potential, explains why it gets skipped or rejected, then rewrites it in the proof-first shape that gets opened, with a fixed answer for every screening question and a visibility checklist. Has a fast mode for freshly posted jobs. Use when the user types /upwork-hiring-panel followed by a proposal (file path or pasted text), or asks to review, score, critique or rewrite an Upwork proposal or cover letter.
+  Run an Upwork proposal past a hiring panel of seven Claudes that each judge it alone as a different reader (a busy client who only sees the profile card and preview, the hiring client, a budget-conscious client, a competing freelancer, a burned-before skeptic, a technical lead and an Upwork veteran), grounded in what Upwork shows clients, market data and the freelancer's own hired proposals. Scores hook, clarity, relevance, credibility, value proposition and interview potential, explains why it gets skipped or rejected, then rewrites it in the proof-first shape, tests the hook against a blind lineup of competitor previews until clients would open it first, with a fixed answer for every screening question and a visibility checklist. Has a fast mode for freshly posted jobs. Use when the user types /upwork-hiring-panel followed by a proposal (file path or pasted text), or asks to review, score, critique or rewrite an Upwork proposal or cover letter.
 argument-hint: "[fast] <proposal file or pasted text> [job post] [bid/rate] [screening questions] [profile]"
 license: MIT
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # /upwork-hiring-panel
@@ -16,6 +16,7 @@ Before starting, read these files in this skill folder:
 - `references/winning-patterns.md`: what clients see before opening, what the data says, and the proof-first shape of hired proposals. **This overrides any reviewer's taste.**
 - `references/personas.md`: the exact brief for each of the seven reviewers.
 - `references/rubric.md`: the six scores, the rejection patterns, the rewrite rules and the screening answer rules.
+- `references/hook-lab.md`: the loop that tests the first two lines with The Scroller, solo and in a blind lineup, until they win, plus what earlier runs learned.
 
 Then check for the freelancer's own wins at `~/.claude/upwork-hiring-panel/wins.md` (job posts and proposals that got hired). If it exists, read it. It is the strongest evidence you have: what got THIS freelancer hired beats general advice.
 
@@ -75,12 +76,17 @@ Also give:
 - **Visibility checklist**: the "Not opened? Check these" list from `winning-patterns.md`, filled in for this job with what you know (job age, proposal count, profile card fit, keywords, boost) and "unknown" where you do not. If the profile card looks like the problem, suggest `/upwork-profile-panel`.
 - **What changed and why**: a short list mapping each numbered problem to the fix.
 
-In full mode, start two sub-agents on the new version (same briefs, same inputs, no notes from the first round): **The Scroller** (on the new preview) and **The Hiring Client** (who also gets the fixed screening answers in place of the originals). Report the before and after verdict and score for both. If the rewrite still loses, say so and say why. Tell the user plainly that these are model reviewers: the real test is the view rate in Upwork's Stats and trends.
+## 5b. Test the hook until it wins (full mode)
+Run the loop in `references/hook-lab.md`, using The Scroller only. Each round: 4 or 5 hook candidates from the proof bank, one fresh Scroller per candidate (solo), plus one blind lineup Scroller that ranks your candidates against 6 competitor previews and picks the 5 it would open. Include the original proposal's hook in round 1 as the baseline. Show the score table after every round, read the reviewers' reasons, and write the next round to answer them.
+
+Stop when a candidate scores 9 or 10 solo AND ranks in the top 2 of the lineup, after 3 rounds, or when two rounds in a row gain nothing. Put the winning hook at the top of the rewritten proposal and adjust the rest so it reads naturally. If the best honest hook plateaus, say so plainly, give its score and rank, and name the one piece of proof that would break the ceiling (for example a small demo of the client's core screen). Hypothetical candidates must be labelled HYPOTHETICAL and never go into the paste-ready proposal unless the user confirms the fact.
+
+Then start one sub-agent: **The Hiring Client** on the full new version (with the fixed screening answers in place of the originals). Report the before and after verdict and score for The Scroller (the winning hook) and The Hiring Client. If the rewrite still loses, say so and say why. Tell the user plainly that these are model reviewers: the real test is the view rate in Upwork's Stats and trends.
 
 ## 6. Write the result
 Create `.upwork-hiring-panel/<YYYY-MM-DD>-<job-slug>/` in the current directory with:
 - `PANEL.md`: the inputs used (what was given, what was assumed), the client's asks, the match keywords, the seven verdicts in full, the scorecard, the shape check, the numbered problems, the ask checklist and the rejection story. In fast mode, only the inputs, asks, keywords and shape check.
-- `PROPOSAL-IMPROVED.md`: the rewritten proposal ready to paste, the three alternative openings, the fixed screening answers (one code block per question), the visibility checklist, what changed and why, the before and after re-check, and the `[ADD: ...]` questions.
+- `PROPOSAL-IMPROVED.md`: the rewritten proposal ready to paste, the hook lab score table for every round, the three alternative openings, the fixed screening answers (one code block per question), the visibility checklist, what changed and why, the before and after re-check, and the `[ADD: ...]` questions.
 
 Touch no other files, except `wins.md` when the user agrees (see Rules). Then show the user, in chat:
 1. A table: one row per reviewer with verdict, score and the line that hurt most (full mode only).
@@ -88,8 +94,9 @@ Touch no other files, except `wins.md` when the user agrees (see Rules). Then sh
 3. The five worst problems, the ask checklist and the rejection story.
 4. The full rewritten proposal in a code block so it can be copied.
 5. If there were screening questions: every fixed answer, each in its own code block under its question, labelled so the user can paste each into its own box. This is never left only in the file.
-6. The visibility checklist.
-7. The before and after re-check, the `[ADD: ...]` questions, and where the files are.
+6. The hook lab table (every round) and which hook won, or where it plateaued and why.
+7. The visibility checklist.
+8. The before and after re-check, the `[ADD: ...]` questions, and where the files are.
 
 ## Rules
 - Be honest. If the proposal is strong, say so, say which reviewer came closest to rejecting it and why it still held, and keep the rewrite to the changes that matter.

@@ -21,6 +21,7 @@ class SkillTest(unittest.TestCase):
         self.personas = read("references", "personas.md")
         self.rubric = read("references", "rubric.md")
         self.patterns = read("references", "winning-patterns.md")
+        self.lab = read("references", "hook-lab.md")
 
     def test_frontmatter(self):
         self.assertTrue(self.skill.startswith("---\nname: upwork-hiring-panel\n"))
@@ -85,6 +86,15 @@ class SkillTest(unittest.TestCase):
         self.assertIn("**Match keywords**", self.skill)
         self.assertIn("**Visibility checklist**", self.skill)
         self.assertIn("Ask checklist", self.skill)
+
+    def test_hook_lab_loop(self):
+        self.assertIn("## 5b. Test the hook until it wins", self.skill)
+        self.assertIn("references/hook-lab.md", self.skill)
+        self.assertIn("## The loop", self.lab)
+        self.assertIn("**Blind lineup**", self.lab)
+        self.assertIn("## Competitor previews for the lineup", self.lab)
+        self.assertIn("HYPOTHETICAL", self.lab)
+        self.assertIn("9 or 10 solo AND ranks in the top 2", self.lab)
 
     def test_stays_on_upwork(self):
         self.assertIn("off Upwork", self.skill)

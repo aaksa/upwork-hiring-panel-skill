@@ -35,6 +35,8 @@ Real hired proposals for app-development jobs follow this shape. None of them op
 
 Typical length: 60 to 180 words before the links.
 
+Hook lessons from blind lineup tests are in `hook-lab.md`. The short version: say what you build on their stack in the first words, connect your proof to the client's own feature names, promise something checkable ("live apps below"), and when you lack the exact app, a small demo of their core screen beats any wording.
+
 What the losing proposals had that the winners did not: a first line with no proof and none of the job's keywords, a long milestone plan or technical essay before any proof, and hedging ("once I have reviewed", "I would confirm later").
 
 ## Not opened? Check these before blaming the letter
