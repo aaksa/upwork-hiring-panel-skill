@@ -6,7 +6,7 @@ Score each from 1 to 10. Start from the scores the named reviewers gave, then ad
 
 | Score | What it asks | Comes from |
 |---|---|---|
-| **Hook** | Do the first two lines make a busy client click? | The Scroller (main), The Upwork Veteran |
+| **Hook** | Do the profile card and the first two lines make a busy client click? | The Scroller (main), The Upwork Veteran |
 | **Clarity** | Is it easy to follow, concrete and correct? | The Technical Lead (main), The Upwork Veteran |
 | **Relevance** | Does it answer this job post, not any job post? | The Hiring Client (main), The Technical Lead, The Competing Freelancer |
 | **Credibility** | Is there proof, or only claims? | The Skeptic (main), The Competing Freelancer |
@@ -30,9 +30,12 @@ A SKIP from The Scroller caps the chance at MEDIUM no matter what else happened:
 Check the proposal against these. Each one the panel found becomes a numbered problem.
 
 **Hook**
-- Opens with a greeting, the freelancer's name, or "I am a [title] with X years of experience".
+- The first two lines never name the client's kind of app, in their words, or say the freelancer has built one like it.
+- Opens with a self-introduction (name, title, years of experience) and no domain match.
+- Opens with clever analysis of the client's project but no proof and none of the job's keywords. Models like these lines; skimming clients skip them.
 - Restates the job title or says "I have read your job description".
-- First two lines are about the freelancer, not the client's problem.
+- The job's main keywords (app type, stack) are missing from the first lines, which can also lower Upwork's match ranking.
+- A short "Hi," on its own is not a problem.
 
 **Relevance**
 - Could be pasted into any job in the category without changes.
@@ -42,6 +45,7 @@ Check the proposal against these. Each one the panel found becomes a numbered pr
 **Credibility**
 - Claims without proof: "expert", "high quality", "100% satisfaction".
 - No specific past project, result or portfolio piece that matches this job.
+- No clickable live app, store listing or demo video. Clients click; claims without links lose.
 - Overpromising: unrealistic timelines or guarantees.
 - Sounds machine-written: "I hope this message finds you well", "delve", "leverage", "seamless", "elevate", "I am thrilled".
 - Spelling or grammar mistakes.
@@ -51,6 +55,7 @@ Check the proposal against these. Each one the panel found becomes a numbered pr
 - Lists every skill the freelancer has.
 - Approach is buzzwords instead of steps.
 - Over about 300 words for a normal job.
+- A long plan, milestone breakdown or technical essay before any proof, when the post did not ask for one.
 
 **Value proposition**
 - No clear deliverable, timeline or next step.
@@ -58,27 +63,29 @@ Check the proposal against these. Each one the panel found becomes a numbered pr
 - Nothing about what happens after delivery (revisions, handover, support) when the job needs it.
 
 **Interview potential and Upwork mechanics**
-- No question and no call to action at the end.
+- An explicit ask from the post ("To apply, please send…") is not answered.
+- No availability or start date when the post asks for it.
+- No question and no call to action at the end (less important than the asks and the proof).
 - Screening questions skipped or answered with "see cover letter".
 - Links that need a login or download.
 - Contact details, or asking to move to email, WhatsApp, Telegram or another platform before a contract. This breaks Upwork's terms and can get the account suspended; always flag it as problem #1.
 
 ## Rewrite rules
 
-The rewrite is for the client, not about the freelancer.
+The rewrite follows the proof-first shape in `winning-patterns.md`, and the freelancer's own `wins.md` when it exists. It is for the client: it shows them, fast, that this person has built their kind of app and can prove it.
 
-1. **Line one is about the client.** Name their goal or problem in their own words from the job post, or lead with the single most relevant proof. No greeting-only line, no name, no years of experience, no "I read your post".
-2. **Proof inside the first 200 characters** when the original has any: a matching past project, a result with a number, a named tool used on the same problem. Only facts from the original or from the user.
-3. **Show you understood.** One or two sentences on what the client really needs, including the risk or detail they did not spell out.
-4. **A short plan.** Two to four concrete steps or a clear approach, in the order you would do them.
-5. **One relevant proof.** One specific example beats a list. Use `[ADD: link to the matching portfolio piece]` if the original has none.
-6. **Scope, time and price framing** when a bid was given: what is delivered, by when, and why it is worth it.
-7. **End with one question or a clear next step.** A specific question about their project that a client wants to answer, or an offer for a short call on Upwork.
-8. **Short.** Usually 120 to 220 words; never over 300 unless the job post asks for detail. Short paragraphs of one to three sentences. Bullets only for steps.
-9. **Plain, human language.** No clichés, no buzzwords, no emoji unless the client's post uses them. Match the client's tone and language.
-10. **Personal.** Use the client's name or company only if it appears in the job post; otherwise no "Dear Sir/Madam", just start.
-11. **Stay on Upwork.** No contact details, no outside links that need a login, no off-platform payment.
-12. **Never invent.** No new clients, numbers, years, tools, reviews or results. Keep every true fact that helps; cut the ones that do not. Where a fix needs a fact you do not have, write `[ADD: what is needed]`.
+1. **Line one: the client's kind of app, in their words, plus "I've built it".** For example "Hi, I've built booking and fitness apps before, including …". Put the job's main keywords (app type, platform, stack) in the first two lines. No clever analysis, no years-of-experience opener.
+2. **Line two: the single strongest credential with a number**, from the proof bank.
+3. **A proof list of 3 to 7 clickable links**, most relevant to this job first, each with a short label naming what in it matches the job ("booking, payments, admin"). Store listings first, then demo videos, then screenshots. Only links the user gave. If the closest match has no link, use `[ADD: link]`.
+4. **Answer every client ask**, in the order the post lists them, briefly: examples, experience, timeline, rate, availability, NDA, whatever was asked.
+5. **Availability**: start date, and hours per day if relevant.
+6. **At most one sharp insight or question about the project**, in one sentence, only after the proof. No milestone plan or technical essay unless the post asks for it; if it does, three bullets at most.
+7. **Short.** Usually 60 to 180 words before the links; never over 250 unless the post asks for detail. Short paragraphs.
+8. **Plain, human language.** No clichés, no buzzwords, no emoji unless the client's post uses them. Match the client's tone and language.
+9. **Personal.** Use the client's name or company only if it appears in the job post; no "Dear Sir/Madam".
+10. **Stay on Upwork.** No contact details, no links that need a login, no off-platform payment.
+11. **Never invent.** No new clients, numbers, years, tools, reviews, links or results. Keep every true fact that helps; cut the ones that do not. Where a fix needs a fact you do not have, write `[ADD: what is needed]`.
+12. **Do not remove proof to make room.** If the original had live links and the rewrite would drop them, keep the links and cut words instead.
 
 ## Screening answer rules
 

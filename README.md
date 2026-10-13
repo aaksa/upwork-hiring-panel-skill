@@ -28,6 +28,33 @@ Nobody sees anybody else's notes. Then the skill:
 
 Everything goes in `.upwork-hiring-panel/` where you run it: `PANEL.md` and `PROPOSAL-IMPROVED.md`.
 
+## Grounded in what actually gets hired
+
+Language-model reviewers like clever, long, analytical proposals. Real clients skim and click proof. So the panel and the
+rewrite are grounded in `references/winning-patterns.md`: what Upwork shows a client before they open a proposal, vendor
+data on timing and crowding, and the **proof-first shape** of proposals that were actually hired:
+
+1. Line one names the client's kind of app, in their words, and says you've built it.
+2. One hard credential with a number.
+3. Three to seven clickable links (store listings, demos), most relevant first.
+4. Every "To apply, please send…" item answered.
+5. Availability. Short sign-off.
+
+It also gives a **visibility checklist** (timing, competition, profile card, keywords, boost), because a proposal that is
+never opened is often a visibility problem, not a wording problem.
+
+### Teach it your wins
+
+Put proposals that got you hired in `~/.claude/upwork-hiring-panel/wins.md` (job post, proposal, outcome, and a proof
+bank of your real links). The skill reads it on every run, reuses your real proof and matches the shape that worked for
+you. When you tell it a proposal got hired, it offers to add it. This file stays on your machine.
+
+### Fast mode
+
+Replies drop fast after a job is posted, so speed beats polish. `/upwork-hiring-panel fast …` skips the panel and gives
+you the proof-first rewrite, screening answers and checklist in a couple of minutes. Send it, then run the full panel
+and edit within Upwork's edit window.
+
 ## Install
 
 Paste this into Claude Code:
@@ -50,6 +77,7 @@ Or copy `skills/upwork-hiring-panel` into `~/.claude/skills/`. Open a new Claude
 
 ```
 /upwork-hiring-panel examples/sample-proposal.md
+/upwork-hiring-panel fast <proposal> <job post>
 ```
 
 Or paste it: the proposal, then the job post, then your bid and any screening answers. The job post matters most; without
@@ -62,7 +90,8 @@ toward your Claude plan's usage.
 skills/upwork-hiring-panel/
   SKILL.md                 the workflow
   references/personas.md   the seven reviewer briefs, passed to each sub-agent word for word
-  references/rubric.md     scores, interview-chance rule, rejection patterns, rewrite rules
+  references/rubric.md     scores, interview-chance rule, rejection patterns, rewrite and screening rules
+  references/winning-patterns.md  what clients see, market data, the proof-first shape, visibility checklist
 examples/sample-proposal.md  a weak proposal and job post to try it on
 tests/test_skill.py
 ```

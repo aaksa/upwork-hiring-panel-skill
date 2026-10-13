@@ -20,6 +20,7 @@ class SkillTest(unittest.TestCase):
         self.skill = read("SKILL.md")
         self.personas = read("references", "personas.md")
         self.rubric = read("references", "rubric.md")
+        self.patterns = read("references", "winning-patterns.md")
 
     def test_frontmatter(self):
         self.assertTrue(self.skill.startswith("---\nname: upwork-hiring-panel\n"))
@@ -50,7 +51,7 @@ class SkillTest(unittest.TestCase):
             self.assertIn("**%s**" % score, self.rubric)
 
     def test_rejection_and_rewrite(self):
-        self.assertIn("## 4. Why it gets rejected", self.skill)
+        self.assertIn("## 4. Why it gets skipped or rejected", self.skill)
         self.assertIn("## 5. Rewrite it", self.skill)
         self.assertIn("before and after verdict", self.skill)
         self.assertIn("## Rewrite rules", self.rubric)
@@ -65,6 +66,25 @@ class SkillTest(unittest.TestCase):
         self.assertIn("each in its own code block", self.skill)
         self.assertIn("## Screening answer rules", self.rubric)
         self.assertIn("Never \"see cover letter\"", self.rubric)
+
+    def test_grounded_in_winning_patterns(self):
+        self.assertIn("references/winning-patterns.md", self.skill)
+        self.assertIn("This overrides any reviewer's taste", self.skill)
+        self.assertIn("## The proof-first shape", self.patterns)
+        self.assertIn("## Not opened? Check these", self.patterns)
+        self.assertIn("proof-first shape", self.rubric)
+        self.assertIn("Judge like a real Upwork client", self.personas)
+
+    def test_learns_from_wins(self):
+        self.assertIn("~/.claude/upwork-hiring-panel/wins.md", self.skill)
+        self.assertIn("**Learn from results.**", self.skill)
+
+    def test_fast_mode_and_checklists(self):
+        self.assertIn("**Fast mode**", self.skill)
+        self.assertIn("**The client's asks**", self.skill)
+        self.assertIn("**Match keywords**", self.skill)
+        self.assertIn("**Visibility checklist**", self.skill)
+        self.assertIn("Ask checklist", self.skill)
 
     def test_stays_on_upwork(self):
         self.assertIn("off Upwork", self.skill)
